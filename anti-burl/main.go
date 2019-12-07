@@ -24,7 +24,7 @@ var (
 	transport *http.Transport
 	wg        sync.WaitGroup
 
-	concurrency = 5
+	concurrency = 2
 	maxSize     = int64(1024000)
 )
 
@@ -98,7 +98,7 @@ func fetchURL(u *url.URL) (*http.Response, int, error) {
 		return nil, 0, err
 	}
 
-	req.Header.Set("User-Agent", "burl/0.1")
+	req.Header.Set("User-Agent", "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3579.0 Safari/537.36")
 
 	resp, err := client.Do(req)
 	if err != nil {
